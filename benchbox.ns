@@ -1,0 +1,13 @@
+source tb_compat.tcl
+
+set ns [new Simulator]
+
+set a [$ns node]
+tb-set-node-os $a UBUNTU12-64-STD
+
+set b [$ns node]
+tb-set-node-os $b UBUNTU12-64-STD
+
+set lan0 [$ns make-lan "$a $b" 100000.0kb 0.0ms]
+
+$ns run
